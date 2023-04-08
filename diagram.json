@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "author": "Vaughn Cedric Araneta",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 3.33, "left": 0.67, "attrs": {} },
+    { "type": "wokwi-lcd1602", "id": "lcd1", "top": -256.36, "left": 61.23, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -63.43,
+      "left": -87.73,
+      "rotate": 270,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -77.15,
+      "left": 260.64,
+      "rotate": 90,
+      "attrs": { "distance": "400" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -72.97,
+      "left": 49.78,
+      "rotate": 180,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -86.01,
+      "left": -10.15,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -48.96,
+      "left": 42.02,
+      "rotate": 180,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "lcd1:RS", "uno:12", "orange", [ "v16.59", "h13.44" ] ],
+    [ "lcd1:E", "uno:11", "orange", [ "h4.26", "v137.72" ] ],
+    [ "lcd1:D4", "uno:10", "orange", [ "v17.07", "h-34.92", "v120.65" ] ],
+    [ "lcd1:D5", "uno:9", "orange", [ "v26.14", "h-35.06" ] ],
+    [ "lcd1:D6", "uno:8", "orange", [ "v40.96", "h-34.56" ] ],
+    [ "lcd1:D7", "uno:7", "orange", [ "v49.09", "h-28.06" ] ],
+    [ "lcd1:VSS", "uno:GND.1", "black", [ "v33.39", "h22.94" ] ],
+    [ "lcd1:K", "uno:GND.1", "black", [ "v33.39", "h-121.06" ] ],
+    [ "lcd1:RW", "uno:GND.1", "black", [ "h-4.76", "v33.25", "h-10.57", "v104.47" ] ],
+    [ "lcd1:A", "r2:1", "red", [ "v0" ] ],
+    [ "r2:2", "uno:5V", "red", [ "h-17.88", "v281.28", "h128.57" ] ],
+    [ "lcd1:VDD", "uno:5V", "red", [ "v45.09", "h-71.15", "v292.91", "h129.09" ] ],
+    [ "ultrasonic1:VCC", "uno:5V", "red", [ "h-17.28", "v254.51", "h-123.19" ] ],
+    [ "ultrasonic1:GND", "uno:GND.1", "black", [ "h0" ] ],
+    [ "uno:2", "r1:1", "violet", [ "v-55.54", "h-219.34" ] ],
+    [ "r1:2", "led1:A", "violet", [ "v0" ] ],
+    [ "led1:C", "uno:GND.1", "black", [ "v14.07", "h111.32" ] ],
+    [ "uno:5", "bz1:2", "cyan", [ "v0" ] ],
+    [ "bz1:1", "uno:GND.1", "black", [ "h0" ] ],
+    [ "ultrasonic1:TRIG", "uno:3", "blue", [ "h0" ] ],
+    [ "ultrasonic1:ECHO", "uno:4", "blue", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
