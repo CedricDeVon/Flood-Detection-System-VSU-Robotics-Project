@@ -27,22 +27,22 @@ Speaker::Speaker(byte pinNumber, unsigned short toneInHertz, unsigned int durati
 
 byte Speaker::getPinNumber()
 {
-  return _pinNumber;
+    return _pinNumber;
 }
 
 bool Speaker::getCurrentState()
 {
-  return _currentState;
+    return _currentState;
 }
 
 unsigned short Speaker::getToneInHertz()
 {
-  return _toneInHertz;
+    return _toneInHertz;
 }
 
 unsigned int Speaker::getDurationInMilliseconds()
 {
-  return _durationInMilliseconds;
+    return _durationInMilliseconds;
 }
 
 void Speaker::turnOn()

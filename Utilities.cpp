@@ -1,18 +1,15 @@
 #include <Arduino.h>
 #include "Utilities.h"
 
-char* Utilities::convert(unsigned int number, int size)
+unsigned int Utilities::getDigitSum(int number)
 {
-		int currentIndex = size - 1;
-		char *characterString = new char[size];
-		unsigned int digits = number;
-		while (currentIndex >= 0)
-		{
-			characterString[currentIndex] = (char) ((digits % 10) + 48);
-			digits /= 10;
-			currentIndex -= 1;
-		}
-  	return characterString;
+    unsigned int count = 0;
+    while (number > 0)
+    {
+        number /= 10;
+        count += 1;
+    }
+    return count;
 }
 
 	

@@ -5,7 +5,7 @@
 class Utilities
 {
     public:
-        char* convert(unsigned int, int);
+        unsigned int getDigitSum(int);
 };
 
 #endif

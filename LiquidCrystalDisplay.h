@@ -18,6 +18,7 @@ class LiquidCrystalDisplay
         byte getCurrentCustomCharacterCount();
         byte getMaximumCustomCharacterCount();
         void displayTextAtCoordinates(char[], byte, byte);
+        void displayTextAtCoordinates(char[], byte);
         void clearDisplay();
         void addCustomCharacter(byte[]);
 

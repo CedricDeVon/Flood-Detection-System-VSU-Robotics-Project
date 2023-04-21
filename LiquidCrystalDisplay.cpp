@@ -84,8 +84,13 @@ byte LiquidCrystalDisplay::getMaximumCustomCharacterCount()
 
 void LiquidCrystalDisplay::displayTextAtCoordinates(char text[], byte rowDisplayCoordinate, byte columnDisplayCoordinate)
 {
-    _liquidCrystal->setCursor(rowDisplayCoordinate, columnDisplayCoordinate);
+    _liquidCrystal->setCursor(columnDisplayCoordinate, rowDisplayCoordinate);
     _liquidCrystal->write(text);
+}
+
+void LiquidCrystalDisplay::displayTextAtCoordinates(char text[], byte columnDisplayCoordinate)
+{
+    displayTextAtCoordinates(text, columnDisplayCoordinate, 0);
 }
 
 void LiquidCrystalDisplay::clearDisplay()
