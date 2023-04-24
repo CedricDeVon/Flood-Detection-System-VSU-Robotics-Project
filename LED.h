@@ -6,21 +6,21 @@ class LED
 {
     public:
         LED(byte);
-        LED(byte, unsigned int);
+        LED(byte, unsigned long);
         byte getPinNumber();
         bool getCurrentState();
-        unsigned int getDurationInMilliseconds();
+        unsigned long getDurationInMilliseconds();
         void turnOn();
         void turnOff();
         void blink();
-        void blink(unsigned int);
+        void blink(unsigned long);
 
     private:
         byte _pinNumber;
         bool _currentState;
-        unsigned int _durationInMilliseconds;
+        unsigned long _durationInMilliseconds;
         unsigned long _timestampInMilliseconds;
-        bool _isTheRightTimeToChangeState(unsigned long, unsigned int);
+        bool _isTheRightTimeToChangeState(unsigned long, unsigned long);
         void _changeCurrentState();
 };
 

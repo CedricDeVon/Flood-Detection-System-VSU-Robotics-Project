@@ -5,8 +5,8 @@
 class HCSR04UltrasonicDistanceSensor
 {
     public:
-        HCSR04UltrasonicDistanceSensor(byte, byte);
         HCSR04UltrasonicDistanceSensor(byte, byte, unsigned int);
+        HCSR04UltrasonicDistanceSensor(byte, byte);
         unsigned int getReceptionDelayInMicroseconds();
         byte getInputPinNumber();
         byte getOutputPinNumber();

@@ -86,11 +86,39 @@ void LiquidCrystalDisplay::displayTextAtCoordinates(char text[], byte rowDisplay
 {
     _liquidCrystal->setCursor(columnDisplayCoordinate, rowDisplayCoordinate);
     _liquidCrystal->write(text);
+    
 }
 
 void LiquidCrystalDisplay::displayTextAtCoordinates(char text[], byte columnDisplayCoordinate)
 {
-    displayTextAtCoordinates(text, columnDisplayCoordinate, 0);
+    displayTextAtCoordinates(text, 0, columnDisplayCoordinate);
+}
+
+void LiquidCrystalDisplay::clearDisplay(byte cellRowIndex, byte startingCellColumnIndex, byte endingCellColumnIndex)
+{
+    for (
+        byte currentCellColumnIndex = startingCellColumnIndex;
+        currentCellColumnIndex <= endingCellColumnIndex;
+        currentCellColumnIndex += 1
+    )
+    {
+        _liquidCrystal->setCursor(currentCellColumnIndex, cellRowIndex);
+        _liquidCrystal->write(" ");
+    }
+}
+
+void LiquidCrystalDisplay::clearDisplay(byte cellRowIndex, byte startingCellColumnIndex)
+{
+    LiquidCrystalDisplay::clearDisplay(cellRowIndex, startingCellColumnIndex, 15);
+}
+
+
+void LiquidCrystalDisplay::clearDisplay(boolean condition)
+{
+    if (condition)
+    {
+        _liquidCrystal->clear();
+    }
 }
 
 void LiquidCrystalDisplay::clearDisplay()

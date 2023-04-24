@@ -1,11 +1,11 @@
 #include <Arduino.h>
-#ifndef ConnectionHandler_h
-#define ConnectionHandler_h
+#ifndef Connections_h
+#define Connections_h
 
-class ConnectionHandler
+class Connections
 {
     public:
-        ConnectionHandler(unsigned int);
+        Connections(unsigned int);
         unsigned int getSerialBandwidth();
 
     private:

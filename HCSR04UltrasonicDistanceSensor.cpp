@@ -7,7 +7,7 @@ HCSR04UltrasonicDistanceSensor::HCSR04UltrasonicDistanceSensor(
 {
     _inputPinNumber = inputPinNumber;
     _outputPinNumber = outputPinNumber;
-    _receptionDelayInMicroseconds = 10;
+    _receptionDelayInMicroseconds = 1000;
 
     pinMode(_inputPinNumber, INPUT);
     pinMode(_outputPinNumber, OUTPUT);

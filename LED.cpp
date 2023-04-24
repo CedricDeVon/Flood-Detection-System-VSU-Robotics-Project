@@ -10,7 +10,7 @@ LED::LED(byte pinNumber)
     pinMode(_pinNumber, OUTPUT);
 }
 
-LED::LED(byte pinNumber, unsigned int durationInMilliseconds)
+LED::LED(byte pinNumber, unsigned long durationInMilliseconds)
 {
     _pinNumber = pinNumber;
     _currentState = LOW;
@@ -30,7 +30,7 @@ bool LED::getCurrentState()
     return _currentState;
 }
 
-unsigned int LED::getDurationInMilliseconds()
+unsigned long LED::getDurationInMilliseconds()
 {
     return _durationInMilliseconds;
 }
@@ -50,7 +50,7 @@ void LED::blink()
     blink(_durationInMilliseconds);
 }
 
-void LED::blink(unsigned int durationInMilliseconds)
+void LED::blink(unsigned long durationInMilliseconds)
 {
     unsigned long currentTimeInMilliseconds = millis();
     if (_isTheRightTimeToChangeState(currentTimeInMilliseconds, durationInMilliseconds))
@@ -63,7 +63,7 @@ void LED::blink(unsigned int durationInMilliseconds)
 
 bool LED::_isTheRightTimeToChangeState(
     unsigned long currentTimeInMilliseconds,
-    unsigned int durationInMilliseconds)
+    unsigned long durationInMilliseconds)
 {
     return (currentTimeInMilliseconds - _timestampInMilliseconds) >= durationInMilliseconds;
 }

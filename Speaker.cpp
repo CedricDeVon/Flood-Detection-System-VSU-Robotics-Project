@@ -16,7 +16,7 @@ Speaker::Speaker(byte pinNumber, unsigned short toneInHertz)
     pinMode(_pinNumber, OUTPUT);
 }
 
-Speaker::Speaker(byte pinNumber, unsigned short toneInHertz, unsigned int durationInMilliseconds)
+Speaker::Speaker(byte pinNumber, unsigned short toneInHertz, unsigned long durationInMilliseconds)
 {
     _pinNumber = pinNumber;
     _toneInHertz = toneInHertz;
@@ -40,7 +40,7 @@ unsigned short Speaker::getToneInHertz()
     return _toneInHertz;
 }
 
-unsigned int Speaker::getDurationInMilliseconds()
+unsigned long Speaker::getDurationInMilliseconds()
 {
     return _durationInMilliseconds;
 }
@@ -70,7 +70,7 @@ void Speaker::blink(unsigned short toneInHertz)
     blink(toneInHertz, _durationInMilliseconds);
 }
 
-void Speaker::blink(unsigned short toneInHertz, unsigned int durationInMilliseconds)
+void Speaker::blink(unsigned short toneInHertz, unsigned long durationInMilliseconds)
 {
     unsigned long currentTimeInMilliseconds = millis();
     if (_isTheRightTimeToChangeState(currentTimeInMilliseconds, durationInMilliseconds))
@@ -83,7 +83,7 @@ void Speaker::blink(unsigned short toneInHertz, unsigned int durationInMilliseco
 
 bool Speaker::_isTheRightTimeToChangeState(
     unsigned long currentTimeInMilliseconds,
-    unsigned int durationInMilliseconds)
+    unsigned long durationInMilliseconds)
 {
     return (currentTimeInMilliseconds - _timestampInMilliseconds) >= durationInMilliseconds;
 }
