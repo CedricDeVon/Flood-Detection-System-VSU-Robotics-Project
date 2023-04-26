@@ -7,6 +7,7 @@ class HCSR04UltrasonicDistanceCalculator
     public:
         HCSR04UltrasonicDistanceCalculator(unsigned int, byte);
         HCSR04UltrasonicDistanceCalculator(unsigned int);
+        HCSR04UltrasonicDistanceCalculator(byte);
         unsigned int getIntegerConversion(unsigned int);
         unsigned int getMaximumDistance();
         byte getMeasurementIndex();

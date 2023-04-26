@@ -2,28 +2,28 @@
 #include "HCSR04UltrasonicDistanceSensor.h"
 
 HCSR04UltrasonicDistanceSensor::HCSR04UltrasonicDistanceSensor(
-    byte inputPinNumber,
-    byte outputPinNumber)
+    byte triggerPinNumber,
+    byte echoPinNumber)
 {
-    _inputPinNumber = inputPinNumber;
-    _outputPinNumber = outputPinNumber;
-    _receptionDelayInMicroseconds = 1000;
+    _triggerPinNumber = triggerPinNumber;
+    _echoPinNumber = echoPinNumber;
+    _receptionDelayInMicroseconds = 10;
 
-    pinMode(_inputPinNumber, INPUT);
-    pinMode(_outputPinNumber, OUTPUT);
+    pinMode(_triggerPinNumber, INPUT);
+    pinMode(_echoPinNumber, OUTPUT);
 }
 
 HCSR04UltrasonicDistanceSensor::HCSR04UltrasonicDistanceSensor(
-    byte inputPinNumber,
-    byte outputPinNumber,
+    byte triggerPinNumber,
+    byte echoPinNumber,
     unsigned int receptionDelayInMicroseconds)
 {
-    _inputPinNumber = inputPinNumber;
-    _outputPinNumber = outputPinNumber;
+    _triggerPinNumber = triggerPinNumber;
+    _echoPinNumber = echoPinNumber;
     _receptionDelayInMicroseconds = receptionDelayInMicroseconds;
 
-    pinMode(_inputPinNumber, INPUT);
-    pinMode(_outputPinNumber, OUTPUT);
+    pinMode(_triggerPinNumber, INPUT);
+    pinMode(_echoPinNumber, OUTPUT);
 }
 
 unsigned int HCSR04UltrasonicDistanceSensor::getReceptionDelayInMicroseconds()
@@ -31,20 +31,20 @@ unsigned int HCSR04UltrasonicDistanceSensor::getReceptionDelayInMicroseconds()
     return _receptionDelayInMicroseconds;
 }
 
-byte HCSR04UltrasonicDistanceSensor::getInputPinNumber()
+byte HCSR04UltrasonicDistanceSensor::getTriggerPinNumber()
 {
-    return _inputPinNumber;
+    return _triggerPinNumber;
 }
 
-byte HCSR04UltrasonicDistanceSensor::getOutputPinNumber()
+byte HCSR04UltrasonicDistanceSensor::getEchoPinNumber()
 {
-    return _outputPinNumber;
+    return _echoPinNumber;
 }
 
 unsigned int HCSR04UltrasonicDistanceSensor::getAnalogInput()
 {
-    digitalWrite(_outputPinNumber, HIGH);
+    digitalWrite(_echoPinNumber, HIGH);
     delayMicroseconds(_receptionDelayInMicroseconds);
-    digitalWrite(_outputPinNumber, LOW);
-    return pulseIn(_inputPinNumber, HIGH);
+    digitalWrite(_echoPinNumber, LOW);
+    return pulseIn(_triggerPinNumber, HIGH);
 }

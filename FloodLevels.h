@@ -9,14 +9,16 @@ class FloodLevels
         int getLevelNameSize(byte);
 
     private:
-        const char _levelNames[2][16] = 
+        const char _levelNames[3][16] = 
         {
             "Danger",
+            "Pending",
             "Safe"
         };
-        const int _levelNameSizes[2] =
+        const int _levelNameSizes[3] =
         {
             6,
+            7,
             4
         };
         bool _isIndexInvalid(byte);

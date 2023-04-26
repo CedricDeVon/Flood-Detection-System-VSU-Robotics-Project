@@ -18,6 +18,12 @@ HCSR04UltrasonicDistanceCalculator::HCSR04UltrasonicDistanceCalculator(unsigned 
     _measurementIndex = 0;
 }
 
+HCSR04UltrasonicDistanceCalculator::HCSR04UltrasonicDistanceCalculator(byte measurementIndex)
+{
+    _maximumDistance = 1000000;
+    _measurementIndex = measurementIndex;
+}
+
 unsigned int HCSR04UltrasonicDistanceCalculator::getIntegerConversion(unsigned int analogInput)
 {
     unsigned int output = analogInput / _measurementValues[_measurementIndex];

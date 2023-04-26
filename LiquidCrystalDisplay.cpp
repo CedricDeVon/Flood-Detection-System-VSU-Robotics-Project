@@ -112,7 +112,6 @@ void LiquidCrystalDisplay::clearDisplay(byte cellRowIndex, byte startingCellColu
     LiquidCrystalDisplay::clearDisplay(cellRowIndex, startingCellColumnIndex, 15);
 }
 
-
 void LiquidCrystalDisplay::clearDisplay(boolean condition)
 {
     if (condition)

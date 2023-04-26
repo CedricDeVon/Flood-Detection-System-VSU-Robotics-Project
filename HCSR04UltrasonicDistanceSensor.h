@@ -8,14 +8,14 @@ class HCSR04UltrasonicDistanceSensor
         HCSR04UltrasonicDistanceSensor(byte, byte, unsigned int);
         HCSR04UltrasonicDistanceSensor(byte, byte);
         unsigned int getReceptionDelayInMicroseconds();
-        byte getInputPinNumber();
-        byte getOutputPinNumber();
+        byte getTriggerPinNumber();
+        byte getEchoPinNumber();
         unsigned int getAnalogInput();
        
     private:
         unsigned int _receptionDelayInMicroseconds;
-        byte _inputPinNumber;
-        byte _outputPinNumber;
+        byte _triggerPinNumber;
+        byte _echoPinNumber;
 };
 
 #endif
